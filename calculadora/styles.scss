@@ -1,0 +1,153 @@
+/*declaracion de colores comunes*/
+$oscuro: #012030;
+$semioscuro: #13678A;
+$normal: #45C4B0;
+$semiclaro: #9AEBA3;
+$claro: #DAFDBA;
+
+/*posiciones generales*/
+* {
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/*configuracion de body*/
+body {
+    min-height: 100%;
+    background-color: $claro;
+    display: grid;
+    place-items: center;
+    transition: .5s ease all;
+    &.dark {
+        background: $oscuro;
+        transition: .5s ease all;
+    }
+}
+
+/*configuracion de calculadora*/
+.calculadora {
+    background-color: $normal;
+    color: $claro;
+    width: 22.5rem;
+    max-width: 100%;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: .5rem;
+    box-shadow: 0 0 1.25rem $oscuro;
+    transition: .5s ease all;
+    body.dark & {
+        background-color: $semioscuro;
+        box-shadow: 0 0 1.25rem $semioscuro;
+        transition: .5s ease all;
+    }
+}
+
+/*cambio de colores*/
+.modo {
+    width: 4rem;
+    height: 2rem;
+    background: $oscuro;
+    border-radius: 31.25rem;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    &::after {
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        background-color: #f1f1f1;
+        top: 0;
+        left: 0;
+        right: unset;
+        border-radius: 62.5rem;
+        transition: .5s ease all;
+    }
+    &.active {
+        background: $claro;
+        color: $oscuro;
+        &::after {
+            right: 0;
+            left: unset;
+        }
+        transition: .5s ease all;
+    }
+    span {
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        display: block;
+        background: none;
+        color: white;
+    }
+}
+
+/*configuracion de pantalla de resultados*/
+.pantalla {
+    grid-column: 1 / 5;
+    background-color: $semiclaro;
+    color: $oscuro;
+    padding: 1.5rem;
+    font-size: 2rem;
+    text-align: right;
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+    font-weight: bold;
+    Overflow: auto;
+    transition: .5s ease all;
+    body.dark & {
+        background: $oscuro;
+        color: $claro;
+        transition: .5s ease all;
+    }
+}
+
+/*configuracion de botones*/
+.boton {
+    background-color: $claro;
+    color: $oscuro;
+    border: 0;
+    padding: 1.5rem .5rem;
+    display: flex;
+    justify-content: center;
+    border-radius: .5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease all;
+    body.dark & {
+        background: $oscuro;
+        color: $claro;
+        transition: .5s ease all;
+    }
+}
+
+/*ajustes varios de botones y visualizacion*/
+.boton:hover {
+    background-color: $semiclaro;
+    transition: .5s ease all;
+    body.dark & {
+        background-color: #265168;
+        transition: .5s ease all;
+    }
+}
+
+#cero {
+    grid-column: span 2;
+}
+
+#igual {
+    grid-row: span 2;
+    background-color: #e65766;
+}
+
+#igual:hover {
+    background-color: #e6394a;
+}

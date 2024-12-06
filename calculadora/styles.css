@@ -1,0 +1,147 @@
+/*declaracion de colores comunes*/
+/*posiciones generales*/
+* {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/*configuracion de body*/
+body {
+  min-height: 100%;
+  background-color: #DAFDBA;
+  display: grid;
+  place-items: center;
+  transition: 0.5s ease all;
+}
+body.dark {
+  background: #012030;
+  transition: 0.5s ease all;
+}
+
+/*configuracion de calculadora*/
+.calculadora {
+  background-color: #45C4B0;
+  color: #DAFDBA;
+  width: 22.5rem;
+  max-width: 100%;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  box-shadow: 0 0 1.25rem #012030;
+  transition: 0.5s ease all;
+}
+body.dark .calculadora {
+  background-color: #13678A;
+  box-shadow: 0 0 1.25rem #13678A;
+  transition: 0.5s ease all;
+}
+
+/*cambio de colores*/
+.modo {
+  width: 4rem;
+  height: 2rem;
+  background: #012030;
+  border-radius: 31.25rem;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+}
+.modo::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 62.5rem;
+  transition: 0.5s ease all;
+}
+.modo.active {
+  background: #DAFDBA;
+  color: #012030;
+  transition: 0.5s ease all;
+}
+.modo.active::after {
+  right: 0;
+  left: unset;
+}
+.modo span {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  display: block;
+  background: none;
+  color: white;
+}
+
+/*configuracion de pantalla de resultados*/
+.pantalla {
+  grid-column: 1/5;
+  background-color: #9AEBA3;
+  color: #012030;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: right;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: monospace;
+  font-weight: bold;
+  Overflow: auto;
+  transition: 0.5s ease all;
+}
+body.dark .pantalla {
+  background: #012030;
+  color: #DAFDBA;
+  transition: 0.5s ease all;
+}
+
+/*configuracion de botones*/
+.boton {
+  background-color: #DAFDBA;
+  color: #012030;
+  border: 0;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease all;
+}
+body.dark .boton {
+  background: #012030;
+  color: #DAFDBA;
+  transition: 0.5s ease all;
+}
+
+/*ajustes varios de botones y visualizacion*/
+.boton:hover {
+  background-color: #9AEBA3;
+  transition: 0.5s ease all;
+}
+body.dark .boton:hover {
+  background-color: #265168;
+  transition: 0.5s ease all;
+}
+
+#cero {
+  grid-column: span 2;
+}
+
+#igual {
+  grid-row: span 2;
+  background-color: #e65766;
+}
+
+#igual:hover {
+  background-color: #e6394a;
+}/*# sourceMappingURL=styles.css.map */
